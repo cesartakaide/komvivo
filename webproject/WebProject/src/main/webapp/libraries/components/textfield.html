@@ -1,0 +1,12 @@
+<!--[COMPONENT_VIEW]-->
+<div class="col-sm-{{$ctrl.length}}">    
+	<div class="panel panel-default"  ng-if="$ctrl.visible">	  
+	  <div class="panel-heading">{{$ctrl.label}}</div>
+	  <div class="panel-body">
+	    <p><input name="{{$ctrl.name}}" ng-if="$ctrl.readOnly == false" type="text" ng-model="$ctrl.value" size="{{$ctrl.size}}" ng-blur="$ctrl.onLostFocus()">
+	       <label ng-if="$ctrl.readOnly == true">{{$ctrl.value}}</label>   
+	    </p>
+	  </div>
+	</div>
+</div>  
+  

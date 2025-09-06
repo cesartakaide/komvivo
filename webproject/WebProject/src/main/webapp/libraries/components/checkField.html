@@ -1,0 +1,10 @@
+<!--[COMPONENT_VIEW]-->
+<div class="col-md-{{$ctrl.length}}">    
+	<div class="panel panel-default">	  
+	  <div class="panel-heading">{{$ctrl.label}}</div>
+	  <div class="panel-body">
+	       <input ng-if="$ctrl.readOnly == false" type="checkbox" ng-model="$ctrl.valor">
+	       <label ng-if="$ctrl.readOnly == true" ng-model="$ctrl.valor"></label>  
+	  </div>
+    </div>
+</div>    

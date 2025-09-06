@@ -1,0 +1,20 @@
+<!--[COMPONENT_VIEW]-->
+<div class="col-md-{{$ctrl.length}}">
+<div class="panel panel-default">	  
+   <div class="panel-heading" ng-if="$ctrl.hasImage()">
+	  <label>{{$ctrl.label}}</label>
+   </div>
+   <div class="panel-body" ng-if="$ctrl.hasImage() && !$ctrl.disabled">
+      <a href="#/nullState">
+         <img ng-if="$ctrl.hasImage()" ng-src="$ctrl.imageUrl" ng-click="$ctrl.onClickImpl()">
+      </a>
+   </div>
+   <div class="panel-body" ng-if="!$ctrl.hasImage() && !$ctrl.disabled">
+      <a href="#/nullState" ng-click="$ctrl.onClickImpl()">{{$ctrl.label}}</a>
+   </div>
+
+   <div class="panel-body" ng-if="$ctrl.disabled">
+      <label>{{$ctrl.label}} - DESHABILITADO</label>
+   </div>     
+</div>
+</div>  

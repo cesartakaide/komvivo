@@ -1,0 +1,9 @@
+<!--[COMPONENT_VIEW]-->
+<div class="col-md-{{$ctrl.length}}" ng-if="$ctrl.visible">
+   <div class="panel panel-default">
+      <div class="panel-body">
+         <button type="button" ng-if="!$ctrl.disabled"  ng-click="$ctrl.localOnClick()">{{$ctrl.label}}</button>
+         <label ng-if="$ctrl.disabled">{{$ctrl.label}} - DESHABILITADO</label>
+      </div>
+   </div>
+</div>

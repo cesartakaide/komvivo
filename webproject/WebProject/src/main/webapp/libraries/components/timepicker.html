@@ -1,0 +1,15 @@
+<!--[COMPONENT_VIEW]-->
+<div class="col-md-{{$ctrl.length}}">    
+	<div class="panel panel-default">	  
+	  <div class="panel-heading">{{$ctrl.label}}</div>
+	  <div class="panel-body">
+        <div ng-if="$ctrl.readOnly == false" uib-timepicker ng-model="$ctrl.value"      
+          hour-step="1"
+          minute-step="30"
+          show-meridian="ismeridian"></div>
+        <label ng-if="$ctrl.readOnly == true">{{$ctrl.value}}</label>
+      </div>
+    </div>
+</div>
+
+    

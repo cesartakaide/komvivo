@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:views xmlns:tns="http://www.example.org/SPAForms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/SPAForms"
+channels="ANYCHANNEL"
+directory="entity">
+
+
+<tns:view name="EntityList" title="Entity list">
+    
+    <tns:variables>
+    	<tns:variable variableName="listado" typeName="com.erpx.entity.bean.Entity" esListado="true"/>
+    	<tns:variable variableName="seleccionado" typeName="com.erpx.entity.bean.Entity"/>
+    </tns:variables>
+	
+	<tns:onInit type="onLoad">
+	   <tns:event>
+	      <tns:controller name="EntityList">
+	         <tns:param localVariable="listado" input="false" output="true"/>
+	      </tns:controller>
+	   </tns:event>
+	</tns:onInit>
+	
+	<tns:form>
+
+		
+		<tns:row>
+		   <tns:table name="tabla" selectedValue="seleccionado" localVariable="listado">
+		    <tns:column title="correlativo" path="id"></tns:column>		    
+		   	<tns:column title="nombre1" path="name1"></tns:column>
+			<tns:column title="nombre2" path="name2"></tns:column>		
+			<tns:column title="apellido1" path="surname1"></tns:column>	
+			<tns:column title="apellido2" path="surname2"></tns:column>
+			<tns:column title="fecha nac" path="birthDate"></tns:column>
+			
+			<tns:column title="consultar">
+			     <tns:eventChain type="onClick">
+			        <tns:event>
+			           <tns:link viewName="EntityDetail">
+			              <tns:param viewParam="state" constantValue="CN"/>
+			              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
+			           </tns:link>
+			        </tns:event>
+			     </tns:eventChain>
+			</tns:column>		 			 			
+		   </tns:table>
+		</tns:row>
+	</tns:form>
+	
+</tns:view>	
+
+</tns:views>
+
+

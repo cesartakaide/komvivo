@@ -1,0 +1,11 @@
+<!--[COMPONENT_VIEW]-->
+<div class="col-md-{{$ctrl.length}}">    
+	<div class="panel panel-default" ng-if="$ctrl.visible">	  
+	  <div class="panel-heading">{{$ctrl.label}}</div>
+	  <div class="panel-body">	   
+	    <select ng-model="$ctrl.value"  ng-change="$ctrl.onChangeImpl()" convert-to-number >
+	        <option ng-repeat="option in $ctrl.listValues" value="{{$ctrl.getKey(option)}}">{{$ctrl.getLabelCombo(option)}}</option>
+	    </select>
+	  </div>
+   </div>
+</div>

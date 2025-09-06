@@ -1,0 +1,58 @@
+<!--[SERVICE_VIEW]-->
+<div class='modal-header'>
+	<h3 class='modal-title'>Mensaje del sistema</h3>
+ </div> 
+ 
+<div class='modal-body' ng-if="!isAutorized() && isAutorizationProcessError()">
+   <div class="row"> 
+       <div class='col-md-2'>login</div>
+       <div class='col-md-4'>{{data.userName}}</div>       
+    </div> 
+    
+    <div class="row">  
+       <div class='col-md-2'>servicio</div>
+       <div class='col-md-3'>{{data.serviceName}}</div>       
+    </div>
+    
+    <div class="row">  
+       <div class='col-md-2'>metodo</div>
+       <div class='col-md-2'>{{data.method}}</div>
+    </div>
+    
+    <div class="row">
+       <div class='col-md-2'>mensaje</div>
+       <div class='col-md-5'>{{data.message}}</div>
+    </div>    
+</div>
+
+<div class='modal-body' ng-if="isAutorized()">
+   <div class="row" ng-if="isInvalidDataValidationError()">
+      <div class='col-md-2'>Valor campo:</div>
+      <div class='col-md-5'>{{headers.error_campo_novalido}}</div>
+      <div class='col-md-5'>Valor no es un "{{headers.error_campo_novalido_tipo}}" valido.</div>
+   </div>
+   
+   <div class="row" ng-if="data.validationError">
+      <div class='col-md-10'>Siguientes campos no estan presentes:</div>
+   </div>
+   
+   <div class="row" ng-if="data.validationError" ng-repeat="missingField in missingFields">
+       <div class='col-md-1'>{{missingField.alias}}</div>
+   </div>
+   
+   <div class="row">     
+     <div class='col-md-2'>mensaje</div>
+     <div class='col-md-5'>{{data.message}}</div>
+   </div>         
+</div>
+
+<div class='modal-body'>
+    <div class='row'>
+       <div class='col-md-4'>Esta seguro de continuar?</div>
+    </div>
+</div>
+
+
+<div class='modal-footer'>    
+    <button class='btn btn-secondary' type='button' ng-click='aceptar()'>Aceptar</button>
+</div>

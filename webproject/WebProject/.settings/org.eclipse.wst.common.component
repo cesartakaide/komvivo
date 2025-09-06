@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+        
+    <wb-module deploy-name="WebProject">
+                
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+                
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+                
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="DMEBase-1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DMEBase/DMEBase">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DMECatalog-1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DMECatalog/DMECatalog">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DMEConverter-1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DMEConverter/DMEConverter">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DMECore-1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DMECore/DMECore">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DMEBean-1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DMEBean/DMEBean">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DMEDatabaseMapperProject-1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DMEDatabaseMapperProject/DMEDatabaseMapperProject">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="DMEReport-1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/DMEReport/DMEReport">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="ViewEngineProject-1.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/ViewEngineProject/ViewEngineProject">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+                
+        <property name="context-root" value="WebProject"/>
+                
+        <property name="java-output-path" value="/WebProject/target/classes"/>
+            
+    </wb-module>
+    
+</project-modules>

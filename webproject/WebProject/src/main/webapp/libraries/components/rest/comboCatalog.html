@@ -1,0 +1,15 @@
+<!--[COMPONENT_VIEW]-->
+<div class="col-md-{{$ctrl.length}}">    
+	<div class="panel panel-default" ng-if="$ctrl.visible">	  
+	  <div class="panel-heading">{{$ctrl.label}}</div>
+	  <div class="panel-body">
+	    <!-- Single button using append-to-body -->
+	    <select ng-model="$ctrl.value" ng-change="$ctrl.onChangeImpl()">
+	       <option value="">------</option>
+	       <option value="{{option.shortCode}}" ng-repeat="option in $ctrl.catalogData">{{option.description}}</option>
+	    </select>
+	  </div>
+   </div>
+</div>
+
+

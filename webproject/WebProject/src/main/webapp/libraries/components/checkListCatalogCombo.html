@@ -1,0 +1,14 @@
+<!--[COMPONENT_VIEW]-->
+<div class="col-md-{{$ctrl.length}}">    
+	<div class="panel panel-default">	  
+	  <div class="panel-heading">{{$ctrl.label}}</div>
+	  <div class="panel-body">  
+	      <label ng-repeat="item in $ctrl.chkListItems">
+	         <input ng-if="$ctrl.readOnly == false" type="checkbox" value="item.shortCode" ng-click="$ctrl.onClick(item)" ng-checked="item.checked" >{{item.label}}
+	      </label>
+	  </div>
+   </div>
+</div>   
+
+
+ 

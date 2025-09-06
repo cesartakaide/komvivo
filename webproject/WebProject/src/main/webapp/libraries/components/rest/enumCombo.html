@@ -1,0 +1,14 @@
+<!--[COMPONENT_VIEW]-->
+<div class="col-md-{{$ctrl.length}}">    
+   <div class="panel panel-default">	  
+	  <div class="panel-heading">{{$ctrl.label}}</div>
+	  <div class="panel-body">
+	      <select ng-model="$ctrl.value" ng-if="$ctrl.readOnly == false">
+	         <option ng-repeat="option in $ctrl.enumDataList" value="{{option.value}}">{{option.description}}</option>
+	      </select>
+	      <label ng-if="$ctrl.readOnly == true">{{$ctrl.value}}</label>
+	  </div>
+   </div>
+</div>	
+    
+

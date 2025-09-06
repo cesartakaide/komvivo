@@ -1,0 +1,60 @@
+<!--[CUSTOM_VIEW]-->
+<div ng-controller="DespliegueAgendaController"  class="container-fluid" ng-init='init()'>   
+  <div class="row">    
+    <uib-tabset active="activeTab">
+      <uib-tab index="0" heading="agenda">
+        <form class="form-horizontal">          
+          <div class="form-group">
+             <date-picker label="fecha agenda" fecha-mascara="dd-mm-yyyy" read-only="readOnly" fecha-valor="agendaDetailCriterio.fechaAgenda"/>
+             <list-combo  label="listado de areas" list-values="listadoAreaEmpresa"
+               key-column="correlativo" value-column="nombre" read-only="readOnly" value="agendaDetailCriterio.empresaArea" />
+             <button ng-click="consulta()">refrescar agenda</button>       
+		  </div>
+		  <div class="form-group">		  		  
+    		<table id="scheduler" class="table table-hover table-bordered" cellspacing="0" >
+				<thead>
+				<tr>
+					<th class="col-md-1" >recurso</th>
+					<th ng-repeat="recurso in parametro.recursos">{{recurso.descripcion}}</th>
+				</tr>	
+				</thead>
+				<tfoot>
+				<tr>
+					<th>recurso</th>
+					<th ng-repeat="recurso in parametro.recursos">{{recurso.descripcion}}</th>
+				</tr>
+				</tfoot>
+				<tbody>
+					<tr ng-repeat="horarioDetalle in listadoHorarioDetalle">
+						<td>{{horarioDetalle.horaInicio}}:{{horarioDetalle.minutoInicio}}-{{horarioDetalle.horaFinal}}:{{horarioDetalle.minutoFinal}}</td>
+						<td ng-repeat="agendaHorarioDetalle in horarioDetalle.horarioFila">						   
+						   <div ng-if="tieneCita(agendaHorarioDetalle) == true" class="panel panel-default">	  
+							  <div class="panel-heading">
+							     <a ng-href="#/InformacionCita/CN/0/0/0/0/0/{{agendaHorarioDetalle.citaAsignada.cita.correlativo}}">informacion</a>
+							     <a ng-href="#/InformacionCita/CM/0/0/0/0/0/{{agendaHorarioDetalle.citaAsignada.cita.correlativo}}">consumir</a>
+							  </div>							  
+							  <div class="panel-body">
+							      <label>{{agendaHorarioDetalle.citaAsignada.cita.cliente.persona.nombre1}}</label>
+							      <label>{{agendaHorarioDetalle.citaAsignada.cita.cliente.persona.nombre2}}</label>
+							      <label>{{agendaHorarioDetalle.citaAsignada.cita.cliente.persona.apellido1}}</label>
+							      <label>{{agendaHorarioDetalle.citaAsignada.cita.cliente.persona.apellido2}}</label>
+							      <a ng-href="#" ng-click="detalleCliente(agendaHorarioDetalle.citaAsignada.cita.cliente.correlativo)">seleccionar</a>
+							  </div>							  
+							  
+						   </div>	
+						   <div ng-if="tieneCita(agendaHorarioDetalle) == false">
+						      <!-- 		idRecurso/tipoRecurso/idEmpresaArea/fecha/idHorarioDetalle/idCita-->
+						   	  <a ng-href="#/InformacionCita/CR/{{agendaHorarioDetalle.recurso.idRecurso}}/{{agendaHorarioDetalle.recurso.tipoRecurso}}/{{agendaDetailCriterio.empresaArea}}/{{agendaDetailCriterio.fechaAgenda}}/{{horarioDetalle.correlativo}}/0">Crear cita</a>
+						   </div>				
+						</td>
+					</tr>
+				</tbody>					
+			</table>						  		  
+		  </div>
+		  
+        </form>
+      </uib-tab>	  
+    </uib-tabset>
+  </div>		
+</div>   
+

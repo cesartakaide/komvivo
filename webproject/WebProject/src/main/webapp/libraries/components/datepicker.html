@@ -1,0 +1,17 @@
+<!--[COMPONENT_VIEW]-->
+<div class="col-md-{{$ctrl.length}}">    
+	<div class="panel panel-default">	  
+	  <div class="panel-heading">{{$ctrl.label}}</div>
+	  <div class="panel-body">
+      <div ng-if="$ctrl.readOnly == false" class="input-group date" data-provide="datepicker" data-date-orientation="bottom" data-date-format="{{$ctrl.fechaMascara}}" data-date-autoclose="true">
+         <input type="text" class="form-control" ng-model='$ctrl.fechaValor'>
+         <div class="input-group-addon">
+            <span class="glyphicon glyphicon-th"></span>
+         </div>
+      </div>
+      <label ng-if="$ctrl.readOnly == true">{{$ctrl.fechaValor}}</label>
+	  </div>
+	</div>
+</div>	
+
+

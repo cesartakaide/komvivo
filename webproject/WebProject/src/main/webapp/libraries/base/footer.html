@@ -1,0 +1,17 @@
+<div class="well well-sm" ng-controller="FooterController">
+  <table class="table">
+    <tr>
+    	<td>usuario:</td>
+    	<td>{{systemData.userName}}</td>
+    	<td>terminal</td>
+    	<td>{{systemData.terminal}}</td>
+    </tr>
+    <tr>
+        <td><img ng-src="{{iconImageSrc}}" height="40px" width="40px"></td>
+    	<td colspan=4><span class="label label-danger">{{systemData.systemMessage}}</span></td>
+    	<td></td>
+    	<td></td>
+    	<td></td>
+    </tr>
+  </table>
+</div>

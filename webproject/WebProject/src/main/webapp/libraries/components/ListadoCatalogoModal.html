@@ -1,0 +1,49 @@
+<!--[COMPONENT_VIEW]-->
+<div class='modal-header'>
+	<h3 class='modal-title'>listado de catalogo</h3>
+</div>    
+<div class='modal-body'>
+  <div class="row">   
+<!--GENERADO POR SPAGEN-->
+<ng-form name="nestedForm" >
+   <div class="form-group">  
+       <div class="row" >          	
+          <label-field name="lblnombrecatalogo"  label="catalogo" value="catalogPK.name"  view-context="viewContext"  length="2"/>
+		  <label-field name="lbldominiocatalogo"  label="dominio" value="catalogPK.domain"  view-context="viewContext"  length="2"/>
+       </div>
+       <div class="row" >
+          <label-field name="lblshortCode"  label="shortcode" value="detalleSeleccionado.shortCode"  view-context="viewContext"  length="2"/>
+          <label-field name="lbldescription"  label="description" value="detalleSeleccionado.description"  view-context="viewContext"  length="2"/> 
+       </div>
+       <div class="row">
+          <table datatable="ng" dt-options="dtOptions" class="row-border hover">
+	      <thead>
+	      <tr>
+            <td>shortCode</td>
+	        <td>description</td>
+	      </tr>
+	      </thead>
+	      <tfoot>
+	      <tr>
+            <td>shortCode</td>
+	        <td>description</td>
+	      </tr>
+	      </tfoot>
+	      <tbody>
+	      <tr ng-repeat="registro in listado track by $index" ng-click="setFilaSeleccionada(registro)" >
+             <td>{{registro.shortCode}}</td>
+             <td>{{registro.description}}</td>              
+   	      </tr>  
+	      </tbody>	    
+	      </table>
+       </div>
+   </div>
+</ng-form>
+
+</div>
+</div>    
+<div class='modal-footer'>
+    <button class='btn btn-primary' type='button' ng-click='seleccionar()'>seleccionar</button>                    
+    <button class='btn btn-primary' type='button' ng-click='closeWindow()'>Cerrar</button>
+</div>
+
