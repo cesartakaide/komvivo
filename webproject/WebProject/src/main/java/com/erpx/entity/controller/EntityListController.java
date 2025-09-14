@@ -34,7 +34,7 @@ public class EntityListController extends QueryController<Entity, Entity>{
 		en.setSurname1("sur");
 		en.setSurname2("sur1");
 		en.setInsdate(Calendar.getInstance());
-		en.setBirthDate(Calendar.getInstance());
+		en.setBirthDate(Calendar.getInstance().getTime());
 		v.add(en);
 		
 		Entity en1 = new Entity();
@@ -44,7 +44,7 @@ public class EntityListController extends QueryController<Entity, Entity>{
 		en1.setSurname1("sur");
 		en1.setSurname2("sur1");
 		en1.setInsdate(Calendar.getInstance());
-		en1.setBirthDate(Calendar.getInstance());
+		en1.setBirthDate(Calendar.getInstance().getTime());
 		v.add(en1);
 		
 		Entity en2 = new Entity();
@@ -54,7 +54,7 @@ public class EntityListController extends QueryController<Entity, Entity>{
 		en2.setSurname1("sur");
 		en2.setSurname2("sur1");
 		en2.setInsdate(Calendar.getInstance());
-		en2.setBirthDate(Calendar.getInstance());
+		en2.setBirthDate(Calendar.getInstance().getTime());
 		v.add(en2);
 		
 		Entity en3 = new Entity();
@@ -64,7 +64,7 @@ public class EntityListController extends QueryController<Entity, Entity>{
 		en3.setSurname1("sur");
 		en3.setSurname2("sur1");
 		en3.setInsdate(Calendar.getInstance());
-		en3.setBirthDate(Calendar.getInstance());
+		en3.setBirthDate(Calendar.getInstance().getTime());
 		v.add(en3);
 		
 		return v;

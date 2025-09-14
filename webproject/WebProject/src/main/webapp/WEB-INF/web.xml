@@ -6,7 +6,7 @@
   <context-param>
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:/applicationContext.xml	        
-                 classpath:/META-INF/datasource-direct-config.xml                      
+                 classpath:/META-INF/datasource-jndi-config.xml                      
 				</param-value>
   </context-param>
   <listener>

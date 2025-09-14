@@ -1,6 +1,6 @@
 package com.erpx.entity.bean;
 
-import java.util.Calendar;
+import java.util.Date;
 
 import com.dme.base.to.BaseModelTO;
 import com.fasterxml.jackson.annotation.JsonFormat;
@@ -15,10 +15,10 @@ public class Entity extends BaseModelTO{
 	private String surname2 = null;
 	private String defaultAddress = null;
 	private String type = null;
-	@JsonFormat(pattern="dd-MM-yyyy", timezone="GMT-6")
-	private Calendar birthDate = null;
-	@JsonFormat(pattern="dd-MM-yyyy", timezone="GMT-6")
-	private Calendar foundationDate = null;
+	@JsonFormat(pattern="yyyy-MM-dd", timezone = "GMT-6")
+	private Date birthDate = null;
+	@JsonFormat(pattern="yyyy-MM-dd", timezone = "GMT-6")
+	private Date foundationDate = null;
 	private boolean taxExtent = false;
 	private String defaultIdentifier = null;
 	public String getName1() {
@@ -56,19 +56,7 @@ public class Entity extends BaseModelTO{
 	}
 	public void setType(String type) {
 		this.type = type;
-	}
-	public Calendar getBirthDate() {
-		return birthDate;
-	}
-	public void setBirthDate(Calendar birthDate) {
-		this.birthDate = birthDate;
-	}
-	public Calendar getFoundationDate() {
-		return foundationDate;
-	}
-	public void setFoundationDate(Calendar foundationDate) {
-		this.foundationDate = foundationDate;
-	}
+	}	
 	public boolean isTaxExtent() {
 		return taxExtent;
 	}
@@ -80,6 +68,18 @@ public class Entity extends BaseModelTO{
 	}
 	public void setDefaultIdentifier(String defaultIdentifier) {
 		this.defaultIdentifier = defaultIdentifier;
+	}
+	public Date getBirthDate() {
+		return birthDate;
+	}
+	public void setBirthDate(Date birthDate) {
+		this.birthDate = birthDate;
+	}
+	public Date getFoundationDate() {
+		return foundationDate;
+	}
+	public void setFoundationDate(Date foundationDate) {
+		this.foundationDate = foundationDate;
 	}
 	
 
