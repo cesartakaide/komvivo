@@ -13,6 +13,8 @@ import javax.sql.DataSource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.BeansException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.dao.DataAccessException;
@@ -32,9 +34,11 @@ import com.erpx.general.ERPConstants;
 @Component
 public class ERPCatalogFactory implements ICatalogFactory, ApplicationContextAware {
      
-     private DataSource datasource = null;
-     private ApplicationContext ctx = null;
-     private Log log = LogFactory.getLog(ERPCatalogFactory.class);
+	@Autowired
+	@Qualifier("datasource")
+    private DataSource datasource = null;
+    private ApplicationContext ctx = null;
+    private Log log = LogFactory.getLog(ERPCatalogFactory.class);
 
      @Override
      public CatalogTO buildCatalog(CatalogPKTO pk) throws CatalogException {

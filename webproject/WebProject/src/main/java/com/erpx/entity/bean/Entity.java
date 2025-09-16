@@ -2,9 +2,12 @@ package com.erpx.entity.bean;
 
 import java.util.Date;
 
+import com.dme.base.annotations.Model;
 import com.dme.base.to.BaseModelTO;
+import com.erpx.general.ERPConstants;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+@Model
 public class Entity extends BaseModelTO{
 
 	private static final long serialVersionUID = 6730861202497917013L;
@@ -15,12 +18,14 @@ public class Entity extends BaseModelTO{
 	private String surname2 = null;
 	private String defaultAddress = null;
 	private String type = null;
-	@JsonFormat(pattern="yyyy-MM-dd", timezone = "GMT-6")
+	@JsonFormat(pattern="yyyy-MM-dd", timezone = ERPConstants.TIMEZONE)
 	private Date birthDate = null;
-	@JsonFormat(pattern="yyyy-MM-dd", timezone = "GMT-6")
+	@JsonFormat(pattern="yyyy-MM-dd", timezone = ERPConstants.TIMEZONE)
 	private Date foundationDate = null;
 	private boolean taxExtent = false;
 	private String defaultIdentifier = null;
+	private String guid = null;
+	
 	public String getName1() {
 		return name1;
 	}
@@ -80,6 +85,12 @@ public class Entity extends BaseModelTO{
 	}
 	public void setFoundationDate(Date foundationDate) {
 		this.foundationDate = foundationDate;
+	}
+	public String getGuid() {
+		return guid;
+	}
+	public void setGuid(String guid) {
+		this.guid = guid;
 	}
 	
 

@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <tns:views xmlns:tns="http://www.example.org/SPAForms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/SPAForms"
-channels="ANYCHANNEL"
-directory="entity">
+channels="ANYCHANNEL" directory="entity">
 
 
-<tns:view name="EntityDetail" title="Entity" stateAsParam="true">
+<tns:view name="EntityDetail" title="Entity" stateAsParam="true" modelClass="com.erpx.entity.bean.Entity">
     <tns:states inheritPredefinedState="baseViewState">
     </tns:states>
 
     <tns:variables>
-    	<tns:variable variableName="parametro" typeName="com.erpx.entity.bean.Entity"/>
+    	<tns:variable variableName="parameter" typeName="com.erpx.entity.bean.Entity"/>
         <tns:variable variableName="listado" typeName="com.erpx.entity.bean.Entity" esListado="true"/>    	    	    	   
     </tns:variables>
     
@@ -21,75 +20,30 @@ directory="entity">
     </tns:controllerDefinitions>
 
 	<tns:parameters>
-		<tns:param name="id" localVariable="parametro" localVariablePath="id" input="true"/>
+		<tns:param name="id" localVariable="parameter" localVariablePath="id" input="true"/>
 	</tns:parameters>	
 
-    <tns:menuBarActions>
-	   <tns:button menuBarButton="boton.agregar">
-	      <tns:eventChain type="onClick"  askConfirmation="true" showSuccessMessage="true">
-	         <tns:event>
-                <tns:controller name="Entity" method="create">
-                   <tns:param localVariable="parametro" output="true"/>
-                </tns:controller>
-	         </tns:event>
-	      </tns:eventChain>
-	   </tns:button>
-	   
-	   <tns:button menuBarButton="boton.actualizar">
-	      <tns:eventChain type="onClick"  askConfirmation="true" showSuccessMessage="true">
-	         <tns:event>
-                <tns:controller name="Entity" method="update">
-                   <tns:param localVariable="parametro" output="true"/>
-                </tns:controller>
-	         </tns:event>
-	      </tns:eventChain>
-	   </tns:button>
-	   
-	   <tns:button menuBarButton="boton.eliminar">
-	      <tns:eventChain type="onClick"  askConfirmation="true" showSuccessMessage="true">
-	         <tns:event>
-                <tns:controller name="Entity" method="remove">
-                   <tns:param paramPath="id" localVariable="parametro" localVariablePath="id"/>
-                   <tns:param paramPath="rowVersion" localVariable="parametro" localVariablePath="rowVersion"/>
-                </tns:controller>                 
-	         </tns:event>
-	      </tns:eventChain>
-	   </tns:button>
-    </tns:menuBarActions>
-	
-	<tns:onInit type="onLoad">	   
-	   <tns:event>
-	      <tns:controller name="Entity" method="detail">
-	         <tns:param paramPath="id" localVariable="parametro" localVariablePath="id"/>
-	         <tns:param localVariable="parametro" input="false" output="true"/>	         
-	      </tns:controller>
-	   </tns:event>	   	   
-	   <tns:event>
-	      <tns:controller name="EntityList">
-	         <tns:param localVariable="listado" input="false" output="true"/>
-	      </tns:controller>
-	   </tns:event>
-	   
-	</tns:onInit>
+   <tns:onInit>
+   </tns:onInit>
 	
 	<tns:tabs>
 	   <tns:tab>
 		<tns:form title="detalle de cliente">
 			<tns:row>
 			   <tns:fields>			     			      			      
-			      <tns:field label="cod persona" name="lblCodPersona" localVariable="parametro" localVariablePath="id" type="text-field"></tns:field>
-			      <tns:field label="primer nombre" name="lblNom1persona" localVariable="parametro" localVariablePath="name1" type="text-field"></tns:field>
-			      <tns:field label="segundo nombre" name="lblNom2Persona" localVariable="parametro" localVariablePath="name2" type="text-field"></tns:field>
-			      <tns:field label="primer apellido" name="lblape1persona" localVariable="parametro" localVariablePath="surname1" type="text-field"></tns:field>
-			      <tns:field label="segundo apellido" name="lblape2persona" localVariable="parametro" localVariablePath="surname2" type="text-field"></tns:field>
+			      <tns:field label="cod persona" name="lblCodPersona" localVariable="parameter" localVariablePath="id" ></tns:field>
+			      <tns:field label="primer nombre" name="lblNom1persona" localVariable="parameter" localVariablePath="name1" ></tns:field>
+			      <tns:field label="segundo nombre" name="lblNom2Persona" localVariable="parameter" localVariablePath="name2" ></tns:field>
+			      <tns:field label="primer apellido" name="lblape1persona" localVariable="parameter" localVariablePath="surname1" ></tns:field>
+			      <tns:field label="segundo apellido" name="lblape2persona" localVariable="parameter" localVariablePath="surname2" ></tns:field>			      
 			   </tns:fields>
 			</tns:row>
 			<tns:row>
 			   <tns:fields>			             
-	             <tns:field label="direccion default" name="txtDireccionDefault" localVariable="parametro" localVariablePath="defaultAddress" type="text-field"></tns:field>	
-	             <tns:field label="fecha nacimiento" name="dtFechaNacimiento" localVariable="parametro" localVariablePath="birthDate" type="datepicker"></tns:field>
-	             <tns:field label="fecha fundacion" name="dtFoundationDate" localVariable="parametro" localVariablePath="foundationDate" type="datepicker"></tns:field>
-	             <tns:field label="exento de impuestos" name="chktaxExtent" localVariable="parametro" localVariablePath="taxExtent" type="check-field"></tns:field>
+	             <tns:field label="direccion default" name="txtDireccionDefault" localVariable="parameter" localVariablePath="defaultAddress" ></tns:field>	
+	             <tns:field label="fecha nacimiento" name="dtFechaNacimiento" localVariable="parameter" localVariablePath="birthDate" ></tns:field>
+	             <tns:field label="fecha fundacion" name="dtFoundationDate" localVariable="parameter" localVariablePath="foundationDate" ></tns:field>
+	             <tns:field label="exento de impuestos" name="chktaxExtent" localVariable="parameter" localVariablePath="taxExtent" ></tns:field>
 			   </tns:fields>
 			</tns:row>
 		</tns:form>	   
@@ -104,17 +58,7 @@ directory="entity">
 			<tns:column title="apellido1" path="surname1"></tns:column>	
 			<tns:column title="apellido2" path="surname2"></tns:column>
 			<tns:column title="fecha nac" path="birthDate"></tns:column>
-			
-			<tns:column title="consultar">
-			     <tns:eventChain type="onClick">
-			        <tns:event>
-			           <tns:link viewName="EntityDetail">
-			              <tns:param viewParam="state" constantValue="CN"/>
-			              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
-			           </tns:link>
-			        </tns:event>
-			     </tns:eventChain>
-			</tns:column>		 			 			
+			 			 			
 		   </tns:table>
 		   </tns:row>
          </tns:form>

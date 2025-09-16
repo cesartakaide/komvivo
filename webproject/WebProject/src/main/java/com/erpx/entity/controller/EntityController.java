@@ -31,10 +31,7 @@ public class EntityController extends ModelDrivenController<Entity> implements I
 	}
 	
 	@Override
-	public Entity update(Entity parametro) throws RestException {
-		//return super.update(parametro);
-		//parametro.setName1("NEW NAME (test)");		
-		//return parametro;		
+	public Entity update(Entity parametro) throws RestException {	
 		setDefaultUpdateData(parametro);
 		return super.update(parametro);
 	}
@@ -42,18 +39,6 @@ public class EntityController extends ModelDrivenController<Entity> implements I
 	
 	@Override
 	public Entity detail(long correlativo) throws RestException {
-		/*Entity en = new Entity();
-		en.setId(222);
-		en.setName1("1111");				
-		en.setName2("name2");
-		en.setSurname1("sur");
-		en.setSurname2("sur1");
-		en.setInsdate(Calendar.getInstance());
-		en.setBirthDate(Calendar.getInstance().getTime());
-		en.setTaxExtent(true);
-		en.setDefaultIdentifier("DEFAULT");
-		en.setFoundationDate(Calendar.getInstance().getTime());
-		return en;*/
 		return super.detail(correlativo);
 	}
 
@@ -80,8 +65,6 @@ public class EntityController extends ModelDrivenController<Entity> implements I
 		// TODO Auto-generated method stub
 		
 	}
-
-
 
 
 	@Override

@@ -36,7 +36,7 @@ directory="entity">
 			     <tns:eventChain type="onClick">
 			        <tns:event>
 			           <tns:link viewName="EntityDetail">
-			              <tns:param viewParam="state" constantValue="CN"/>
+			              <tns:param viewParam="state" constantValue="DT"/>
 			              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
 			           </tns:link>
 			        </tns:event>
