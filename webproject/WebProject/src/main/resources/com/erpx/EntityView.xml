@@ -44,6 +44,7 @@ channels="ANYCHANNEL" directory="entity">
 	             <tns:field label="fecha nacimiento" name="dtFechaNacimiento" localVariable="parameter" localVariablePath="birthDate" ></tns:field>
 	             <tns:field label="fecha fundacion" name="dtFoundationDate" localVariable="parameter" localVariablePath="foundationDate" ></tns:field>
 	             <tns:field label="exento de impuestos" name="chktaxExtent" localVariable="parameter" localVariablePath="taxExtent" ></tns:field>
+	             <tns:field label="tipo" name="txtTipoEntidad" localVariable="parameter" localVariablePath="type" ></tns:field>
 			   </tns:fields>
 			</tns:row>
 		</tns:form>	   

@@ -18,9 +18,9 @@ public class Entity extends BaseModelTO{
 	private String surname2 = null;
 	private String defaultAddress = null;
 	private String type = null;
-	@JsonFormat(pattern="yyyy-MM-dd", timezone = ERPConstants.TIMEZONE)
+	@JsonFormat(pattern="yyyy-mm-dd", timezone = ERPConstants.TIMEZONE)
 	private Date birthDate = null;
-	@JsonFormat(pattern="yyyy-MM-dd", timezone = ERPConstants.TIMEZONE)
+	@JsonFormat(pattern="yyyy-mm-dd", timezone = ERPConstants.TIMEZONE)
 	private Date foundationDate = null;
 	private boolean taxExtent = false;
 	private String defaultIdentifier = null;
