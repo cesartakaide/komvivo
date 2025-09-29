@@ -1,5 +1,7 @@
 package com.erpx.entity.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -18,6 +20,9 @@ import com.viewengine.exception.RestException;
 	@ControllerPrimaryKeyField(name="id", path="id")	
 })
 public class EntityController extends ModelDrivenController<Entity> implements IManttoController<Entity>{	
+	
+	@Autowired
+	private JmsTemplate jmsTemplate=null;
 	
 	public EntityController() {
 		super();
@@ -39,7 +44,9 @@ public class EntityController extends ModelDrivenController<Entity> implements I
 	
 	@Override
 	public Entity detail(long correlativo) throws RestException {
-		return super.detail(correlativo);
+		Entity ent = super.detail(correlativo);				
+		this.jmsTemplate.convertAndSend("myQueue", ent);
+		return ent;
 	}
 
 	@Override
@@ -71,6 +78,16 @@ public class EntityController extends ModelDrivenController<Entity> implements I
 	public Class<Entity> getModelClass() {
 		// TODO Auto-generated method stub
 		return Entity.class;
+	}
+
+
+	public JmsTemplate getJmsTemplate() {
+		return jmsTemplate;
+	}
+
+
+	public void setJmsTemplate(JmsTemplate jmsTemplate) {
+		this.jmsTemplate = jmsTemplate;
 	}
 
 

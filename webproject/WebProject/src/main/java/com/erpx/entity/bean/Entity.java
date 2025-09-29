@@ -4,6 +4,7 @@ import java.util.Date;
 
 import com.dme.base.annotations.Model;
 import com.dme.base.to.BaseModelTO;
+import com.dme.base.util.ObjectUtil;
 import com.erpx.general.ERPConstants;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -18,13 +19,23 @@ public class Entity extends BaseModelTO{
 	private String surname2 = null;
 	private String defaultAddress = null;
 	private String type = null;
-	@JsonFormat(pattern="yyyy-mm-dd", timezone = ERPConstants.TIMEZONE)
+	@JsonFormat(pattern="yyyy-MM-dd", timezone = ERPConstants.TIMEZONE)
 	private Date birthDate = null;
-	@JsonFormat(pattern="yyyy-mm-dd", timezone = ERPConstants.TIMEZONE)
+	@JsonFormat(pattern="yyyy-MM-dd", timezone = ERPConstants.TIMEZONE)
 	private Date foundationDate = null;
 	private boolean taxExtent = false;
 	private String defaultIdentifier = null;
 	private String guid = null;
+	
+	@Override
+	public String toString() {
+		try {
+			StringBuffer sb = new StringBuffer();		
+			return ObjectUtil.ToString(new Object[] {name1, name2, surname1, surname2, defaultAddress, type, birthDate, foundationDate});
+		}catch(Exception ex) {
+			return "ToString error :" + ex.getMessage();
+		}
+	}
 	
 	public String getName1() {
 		return name1;
