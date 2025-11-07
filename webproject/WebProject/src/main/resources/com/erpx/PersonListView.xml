@@ -2,19 +2,19 @@
 
 <tns:views xmlns:tns="http://www.example.org/SPAForms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/SPAForms"
 channels="ANYCHANNEL"
-directory="entity">
+directory="persona">
 
 
-<tns:view name="EntityList" title="Entity list">
+<tns:view name="PersonList" title="Personas">
     
     <tns:variables>
-    	<tns:variable variableName="listado" typeName="com.erpx.entity.bean.Entity" esListado="true"/>
-    	<tns:variable variableName="seleccionado" typeName="com.erpx.entity.bean.Entity"/>
+    	<tns:variable variableName="listado" typeName="com.erpx.persona.bean.PersonTO" esListado="true"/>
+    	<tns:variable variableName="seleccionado" typeName="com.erpx.persona.bean.PersonTO"/>
     </tns:variables>
 	
 	<tns:onInit type="onLoad">
 	   <tns:event>
-	      <tns:controller name="EntityList">
+	      <tns:controller name="PersonList">
 	         <tns:param localVariable="listado" input="false" output="true"/>
 	      </tns:controller>
 	   </tns:event>
@@ -24,7 +24,7 @@ directory="entity">
        <tns:button menuBarButton="boton.agregar">
 	      <tns:eventChain type="onClick">
 	         <tns:event>
-	            <tns:link viewName="EntityDetail">
+	            <tns:link viewName="PersonDetail">
 	               <tns:param viewParam="state" constantValue="CR"/>
 	               <tns:param viewParam="id" constantValue="0"/>
 	            </tns:link>
@@ -41,12 +41,12 @@ directory="entity">
 		    <tns:column title="correlativo" path="id"></tns:column>		    
 		   	<tns:column title="nombre1" path="name1"></tns:column>
 			<tns:column title="apellido1" path="surname1"></tns:column>	
-			<tns:column title="fecha nac" path="birthDate"></tns:column>
+			
 			
 			<tns:column title="consultar">
 			     <tns:eventChain type="onClick">
 			        <tns:event>
-			           <tns:link viewName="EntityDetail">
+			           <tns:link viewName="PersonDetail">
 			              <tns:param viewParam="state" constantValue="DT"/>
 			              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
 			           </tns:link>
@@ -57,7 +57,7 @@ directory="entity">
 			<tns:column title="editar">
 			     <tns:eventChain type="onClick">
 			        <tns:event>
-			           <tns:link viewName="EntityDetail">
+			           <tns:link viewName="PersonDetail">
 			              <tns:param viewParam="state" constantValue="UP"/>
 			              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
 			           </tns:link>
@@ -68,7 +68,7 @@ directory="entity">
 			<tns:column title="eliminar">
 			     <tns:eventChain type="onClick">
 			        <tns:event>
-			           <tns:link viewName="EntityDetail">
+			           <tns:link viewName="PersonDetail">
 			              <tns:param viewParam="state" constantValue="DE"/>
 			              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
 			           </tns:link>

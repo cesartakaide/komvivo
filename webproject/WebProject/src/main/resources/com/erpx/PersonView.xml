@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<tns:views xmlns:tns="http://www.example.org/SPAForms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/SPAForms"
+channels="ANYCHANNEL" directory="person">
+
+
+<tns:view name="PersonDetail" title="Person" stateAsParam="true" modelClass="com.erpx.persona.bean.PersonTO">
+    <tns:states inheritPredefinedState="baseViewState">
+    </tns:states>
+
+    <tns:variables>
+    	<tns:variable variableName="parameter" typeName="com.erpx.persona.bean.PersonTO"/>
+        <tns:variable variableName="listado" typeName="com.erpx.persona.bean.PersonTO" esListado="true"/>    	    	    	   
+    </tns:variables>
+ 
+
+	<tns:parameters>
+		<tns:param name="id" localVariable="parameter" localVariablePath="id" input="true"/>
+	</tns:parameters>	
+
+   <tns:onInit>
+   </tns:onInit>
+	
+	<tns:tabs>
+	   <tns:tab>
+		<tns:form title="Detalle de persona">
+			
+			<tns:row>
+				<tns:fields>
+					<tns:field label="Nombre1" localVariablePath="name1" mandatory="true"  />
+		            <tns:field label="Nombre2" localVariablePath="name2" />
+		            <tns:field label="Nombre3" localVariablePath="name3" />
+				</tns:fields>
+			</tns:row>
+			<tns:row>
+				<tns:fields>
+					<tns:field label="Apellido1" localVariablePath="surname1" mandatory="true" />
+					<tns:field label="Apellido2" localVariablePath="surname2" />
+					<tns:field label="Apellido casada" localVariablePath="marriedSurname"/>			
+				</tns:fields>
+			</tns:row>
+			<tns:row>
+				<tns:fields>
+			       <tns:field label="Nombre largo" localVariablePath="longName" length="6"/>
+				</tns:fields>
+			</tns:row>
+			
+			<tns:row>
+				<tns:fields>
+					<tns:field label="Identificacion" localVariablePath="identification"/>
+					<tns:field label="Tipo" localVariablePath="identificationType"/>
+					<tns:field label="Codigo tributario" localVariablePath="taxCode"/>
+				</tns:fields>
+			</tns:row>
+			
+			<tns:row>
+				<tns:fields>
+					<tns:field label="Fecha nacimiento" localVariablePath="birthdate"/>
+		            <tns:field label="Genero" localVariablePath="gender"/>
+		        </tns:fields>
+		    </tns:row>	
+		</tns:form>	  				
+	  </tns:tab>
+	   <tns:tab>
+		<tns:form title="Otra informacion">			
+			<tns:row>
+				<tns:fields>
+	                <tns:field label="Acepta publicidad" localVariablePath="acceptPublicity"/>
+	                <tns:field label="Carrera universitaria" localVariablePath="universityCareer"/>	
+					<tns:field label="Ocupacion" localVariablePath="occupation"/>			
+					<tns:field label="Lugar de trabajo" localVariablePath="workplace"/>
+				</tns:fields>
+	        </tns:row>
+	        <tns:row>
+				<tns:fields>					
+					<tns:field label="Lugar de estudios" localVariablePath="studyPlace"/>	
+					<tns:field label="Estado civil" localVariablePath="maritalStatus"/>	
+					<tns:field label="Posicion en empresa" localVariablePath="companyPosition"/>
+				</tns:fields>
+	        </tns:row>
+	        <tns:row>
+				<tns:fields>	
+					<tns:field label="Grado de estudio" localVariablePath="studyDegree"/>
+					<tns:field label="Ocupacion" localVariablePath="occupationDescription"/>
+				</tns:fields>
+			</tns:row>
+	   	</tns:form>
+	  </tns:tab>
+	</tns:tabs>
+
+	
+</tns:view>	
+
+</tns:views>
