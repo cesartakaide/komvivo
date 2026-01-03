@@ -29,22 +29,24 @@ public class PersonListController extends QueryController<PersonTO, PersonTO>{
 			,@RequestParam(name = "name2") String name2
 			,@RequestParam(name = "name3") String name3) throws RestException {
 		PersonTO criteria = new PersonTO();
-		criteria.setName1(name1);
-		criteria.setName2(name2);
-		criteria.setName3(name3);
+		criteria.setName1(name1 != null ? name1.trim().equals("") ? null : name1 : name1);
+		criteria.setName1(name2 != null ? name2.trim().equals("") ? null : name2 : name2);
+		criteria.setName1(name3 != null ? name3.trim().equals("") ? null : name3 : name3);
 		criteria.setCompany(company);
-		return super.listBase(criteria);		
+		List<PersonTO> l = super.listBase(criteria);
+		return l;
 	}
 	
 	@Override
 	public IQueryDao<PersonTO, PersonTO> buildQueryDao(PersonTO criteria) throws Exception {
-		// TODO Auto-generated method stub
-		return new ListPerson();
+		ListPerson dao = new ListPerson();
+		dao.setCriteria(criteria);
+		return dao;
 	}
 	
 	@Override
 	public void setSystemData(DaoTO daoTO) throws RestException {
 		// TODO Auto-generated method stub
-		
+		((ListPerson)daoTO).getCriteria().setCompany(0);
 	}
 }

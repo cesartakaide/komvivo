@@ -69,4 +69,8 @@ public class ListPerson extends DaoTO implements IQueryDao<PersonTO, PersonTO>{
 		return this.list;
 	}
 
+	public void setList(List<PersonTO> list) {
+		this.list = list;
+	}
+
 }

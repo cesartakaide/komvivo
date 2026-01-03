@@ -3,9 +3,12 @@ package com.erpx.persona.bean;
 import java.util.Calendar;
 
 import com.dme.base.annotations.CatalogMapping;
+import com.dme.base.annotations.FieldDescriptor;
+import com.dme.base.constants.Constants;
 import com.dme.base.to.BaseModelTO;
 import com.dme.catalog.to.CatalogDetailTO;
 import com.erpx.general.enums.Gender;
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class PersonTO extends BaseModelTO {
 
@@ -13,13 +16,20 @@ public class PersonTO extends BaseModelTO {
 	
 	private boolean acceptPublicity = false; // bit = null
 	private String universityCareer = null;// varchar (10) = null
+	@JsonFormat(pattern=Constants.DATE_FORMAT, timezone="GMT-6")
+	@FieldDescriptor(mandatory = true)
 	private Calendar birthdate = null;// datetime = null
 	private String occupation = null;// char (10) = null
+	@FieldDescriptor(mandatory = true)
 	private Gender gender = null;// char (1) = null
+	@FieldDescriptor(mandatory = true)
 	private String identificationType = null;// char (10) = null
+	@FieldDescriptor(mandatory = true)
 	private String longName = null;// nvarchar (500) = null
 	private String workplace = null;// varchar (50) = null
+	@FieldDescriptor(mandatory = true)
 	private String surname1 = null;// nvarchar (100) = null
+	@FieldDescriptor(mandatory = true)
 	private String identification = null;// nvarchar (100) = null
 	private String surname2 = null;// nvarchar (100) = null
 	private String marriedSurname = null;// nvarchar (100) = null
@@ -29,8 +39,9 @@ public class PersonTO extends BaseModelTO {
 	private CatalogDetailTO maritalStatus = null;// char (10) = null
 	private String name3 = null;// nvarchar (100) = null
 	@CatalogMapping(catalogDomain = "ERPX", catalogName = "company_position")
-	private CatalogDetailTO companyPosition = null;// varchar (10) = null
+	private CatalogDetailTO companyPosition = null;// varchar (10) = null	
 	private String name2 = null;// nvarchar (100) = null
+	@FieldDescriptor(mandatory = true)
 	private String name1 = null;// nvarchar (100) = null
 	@CatalogMapping(catalogDomain = "ERPX", catalogName = "study_degree")
 	private CatalogDetailTO studyDegree = null;// varchar (10) = null

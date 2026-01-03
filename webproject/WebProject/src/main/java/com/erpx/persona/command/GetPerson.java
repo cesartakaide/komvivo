@@ -2,10 +2,12 @@ package com.erpx.persona.command;
 
 import com.dme.base.annotations.ComplexMapping;
 import com.dme.base.annotations.Parameter;
+import com.dme.base.annotations.Procedure;
 import com.dme.base.modeldriven.interfaces.IGetCommand;
 import com.dme.bean.to.DaoTO;
 import com.erpx.persona.bean.PersonTO;
 
+@Procedure(spName = "sp_get_person")
 public class GetPerson extends DaoTO implements IGetCommand<PersonTO>{
 
 	private static final long serialVersionUID = 4858671687627008019L;

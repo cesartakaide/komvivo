@@ -55,7 +55,8 @@ public class PersonController extends ModelDrivenController<PersonTO> implements
 	@Override
 	public void setSystemData(BaseModelTO parameter) {
 		// TODO Auto-generated method stub
-		
+		parameter.setCompany(0);
+		parameter.setUserCreator("TEST");
 	}
 
 	@Override
