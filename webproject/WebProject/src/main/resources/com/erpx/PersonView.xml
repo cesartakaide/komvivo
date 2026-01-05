@@ -6,6 +6,7 @@ channels="ANYCHANNEL" directory="person">
 
 <tns:view name="PersonDetail" title="Person" stateAsParam="true" modelClass="com.erpx.persona.bean.PersonTO">
     <tns:states inheritPredefinedState="baseViewState">
+      
     </tns:states>
 
     <tns:variables>
@@ -18,7 +19,7 @@ channels="ANYCHANNEL" directory="person">
 		<tns:param name="id" localVariable="parameter" localVariablePath="id" input="true"/>
 	</tns:parameters>	
 
-   <tns:onInit>
+   <tns:onInit>   
    </tns:onInit>
 	
 	<tns:tabs>
@@ -27,21 +28,21 @@ channels="ANYCHANNEL" directory="person">
 			
 			<tns:row>
 				<tns:fields>
-					<tns:field label="Nombre1" localVariablePath="name1" mandatory="true"  />
-		            <tns:field label="Nombre2" localVariablePath="name2" />
-		            <tns:field label="Nombre3" localVariablePath="name3" />
+					<tns:field label="nombre1" localVariablePath="name1" />
+		            <tns:field label="nombre2" localVariablePath="name2" />
+		            <tns:field label="nombre3" localVariablePath="name3" />
 				</tns:fields>
 			</tns:row>
 			<tns:row>
 				<tns:fields>
-					<tns:field label="Apellido1" localVariablePath="surname1" mandatory="true" />
+					<tns:field label="Apellido1" localVariablePath="surname1" />
 					<tns:field label="Apellido2" localVariablePath="surname2" />
 					<tns:field label="Apellido casada" localVariablePath="marriedSurname"/>			
 				</tns:fields>
 			</tns:row>
 			<tns:row>
 				<tns:fields>
-			       <tns:field label="Nombre largo" localVariablePath="longName" length="6"/>
+			       <tns:field  label="Nombre largo" localVariablePath="longName" length="6"/>
 				</tns:fields>
 			</tns:row>
 			
@@ -86,6 +87,31 @@ channels="ANYCHANNEL" directory="person">
 			</tns:row>
 	   	</tns:form>
 	  </tns:tab>
+	   <tns:tab>
+		<tns:form title="Sistema">			
+			<tns:row>
+				<tns:fields>
+	                <tns:field label="Company" localVariablePath="company"/>
+	                <tns:field label="Usuario" localVariablePath="userCompanyCode"/>	
+					<tns:field label="rowversion" localVariablePath="rowVersion"/>			
+					<tns:field label="correlativo" localVariablePath="id"/>
+				</tns:fields>
+	        </tns:row>
+	        <tns:row>
+				<tns:fields>					
+					<tns:field label="deleted" localVariablePath="deleted"/>	
+					<tns:field label="insdate" localVariablePath="insdate"/>	
+					<tns:field label="update" localVariablePath="upddate"/>
+				</tns:fields>
+	        </tns:row>
+	        <tns:row>
+				<tns:fields>	
+					<tns:field label="usercreator" localVariablePath="userCreator"/>
+					<tns:field label="usrupdate" localVariablePath="userUpdate"/>
+				</tns:fields>
+			</tns:row>			
+	   	</tns:form>
+	  </tns:tab>	  
 	</tns:tabs>
 
 	

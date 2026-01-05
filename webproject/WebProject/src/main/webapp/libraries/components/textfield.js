@@ -13,6 +13,7 @@ myApp.component('textField', {
      ,viewContext : '=?'
      ,onClick  : '=?'       	 
      ,eventData : '=?'  
+	 ,mandatory : '=?'
   }
 });
 
@@ -28,6 +29,9 @@ function TextFieldController($scope, $log) {
 	  
 	  if (ctrl.length == null){
 		  ctrl.length = 2;
+	  }
+	  if (ctrl.mandatory == null){
+		ctrl.mandatory = false;
 	  }
 	  
 	  if (ctrl.length > 2){

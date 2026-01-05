@@ -11,6 +11,7 @@ myApp.factory('ViewContextInitializer', [    '$log', '$rootScope', 'projectSite'
 		viewContext.viewName = name;
 		viewContext.log = $log;
 		viewContext.stateTransition = []; //arreglo de {state, viewSettings}
+		viewContext.initialState = null;		
 		
 		viewContext.addField = function(fieldControl){
 			var fieldData = {
@@ -35,16 +36,19 @@ myApp.factory('ViewContextInitializer', [    '$log', '$rootScope', 'projectSite'
 				   f.label = fieldControl.label;
 				   f.control = fieldControl;
 				   if (f.defaults != null){
-					   f.control.readOnly = (f.defaults.readOnly != null ? f.defaults.readOnly : false);
-					   f.control.mandatory = (f.defaults.mandatory != null ? f.defaults.mandatory : false);
+					   f.control.readOnly = (f.defaults.readOnly != null ? f.defaults.readOnly : false);					   
+					   f.control.mandatory = (f.defaults.mandatory != null ? f.defaults.mandatory : false);					   
 					   f.control.disabled = false;
 					   f.control.visible = true;
-				   };
+				   };				   
 			   };
-			   if (f.control != null && f.control.eventData != null){
-				   f.asociatedEvents = f.control.eventData.asociatedEvents;
-				   var authorised = viewContext.validateSecurityField (f);
-				   f.control.disabled = !authorised;
+			   if (f.control != null){
+				   if (f.control.eventData != null){
+				   		f.asociatedEvents = f.control.eventData.asociatedEvents;
+				   		var authorised = viewContext.validateSecurityField (f);
+				   		f.control.disabled = !authorised;
+				   }
+				   viewContext.setDefaultSettings(f);
 			   };
 			};
 		};
@@ -58,6 +62,19 @@ myApp.factory('ViewContextInitializer', [    '$log', '$rootScope', 'projectSite'
 			};			
 			return null;
 		};	
+
+		viewContext.setDefaultSettings = function(field){
+		   	if (viewContext.initialState != null){
+				var state = viewContext.searchState(viewContext.initialState);
+				for (var c=0; c < state.viewSettings.length; c++){
+					var setting = state.viewSettings[c];
+					if (setting.fieldName == field.name){
+						field.control.readOnly = setting.readOnly;
+						field.control.mandatory = setting.mandatory;
+					}
+				}
+			}
+		};
 		
 		viewContext.isVisible = function(fieldName){
 			var fieldData= viewContext.findField(fieldName);
