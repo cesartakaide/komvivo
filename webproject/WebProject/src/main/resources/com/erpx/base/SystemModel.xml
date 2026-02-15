@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:views channels="ANYCHANNEL" directory="base" xmlns:tns="http://www.example.org/SPAForms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/SPAForms http://www.example.org/SPAForms ">
+  <tns:formModels>
+    
+    <tns:form id="BaseModel" title="System configuration" modelClass="com.dme.base.to.BaseModelTO" >
+    		<tns:row>
+				<tns:fields>
+	                <tns:field label="Company" localVariablePath="company" readOnly="true"/>
+	                <tns:field label="Usuario" localVariablePath="userCompanyCode" readOnly="true"/>	
+					<tns:field label="rowversion" localVariablePath="rowVersion"  readOnly="true"/>			
+					<tns:field label="correlativo" localVariablePath="id" readOnly="true"/>
+				</tns:fields>
+	        </tns:row>
+	        <tns:row>
+				<tns:fields>					
+					<tns:field label="deleted" localVariablePath="deleted"  readOnly="true"/>	
+					<tns:field label="insdate" localVariablePath="insdate"  readOnly="true"/>	
+					<tns:field label="update" localVariablePath="upddate"  readOnly="true"/>
+				</tns:fields>
+	        </tns:row>
+	        <tns:row>
+				<tns:fields>	
+					<tns:field label="usercreator" localVariablePath="userCreator"  readOnly="true"/>
+					<tns:field label="usrupdate" localVariablePath="userUpdate" readOnly="true"/>
+				</tns:fields>
+			</tns:row>			
+       
+    </tns:form>
+  </tns:formModels>
+</tns:views>

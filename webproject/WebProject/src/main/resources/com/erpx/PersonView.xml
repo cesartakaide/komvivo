@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<tns:views xmlns:tns="http://www.example.org/SPAForms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/SPAForms"
+<tns:views xmlns:tns="http://www.example.org/SPAForms" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/SPAForms http://www.example.org/SPAForms " 
 channels="ANYCHANNEL" directory="person">
 
 
 <tns:view name="PersonDetail" title="Person" stateAsParam="true" modelClass="com.erpx.persona.bean.PersonTO">
     <tns:states inheritPredefinedState="baseViewState">
-      
     </tns:states>
 
     <tns:variables>
@@ -28,9 +27,9 @@ channels="ANYCHANNEL" directory="person">
 			
 			<tns:row>
 				<tns:fields>
-					<tns:field label="nombre1" localVariablePath="name1" />
-		            <tns:field label="nombre2" localVariablePath="name2" />
-		            <tns:field label="nombre3" localVariablePath="name3" />
+					<tns:field label="nombre1" localVariablePath="name1"  length="4"/>
+		            <tns:field label="nombre2" localVariablePath="name2"  length="4"/>
+		            <tns:field label="nombre3" localVariablePath="name3"  length="3"/>
 				</tns:fields>
 			</tns:row>
 			<tns:row>
@@ -42,7 +41,7 @@ channels="ANYCHANNEL" directory="person">
 			</tns:row>
 			<tns:row>
 				<tns:fields>
-			       <tns:field  label="Nombre largo" localVariablePath="longName" length="6"/>
+			       <tns:field  label="Nombre largo" localVariablePath="longName" length="10"/>
 				</tns:fields>
 			</tns:row>
 			
@@ -82,35 +81,13 @@ channels="ANYCHANNEL" directory="person">
 	        <tns:row>
 				<tns:fields>	
 					<tns:field label="Grado de estudio" localVariablePath="studyDegree"/>
-					<tns:field label="Ocupacion" localVariablePath="occupationDescription"/>
+					<tns:field  label="Ocupacion" localVariablePath="occupationDescription"/>
 				</tns:fields>
 			</tns:row>
 	   	</tns:form>
 	  </tns:tab>
 	   <tns:tab>
-		<tns:form title="Sistema">			
-			<tns:row>
-				<tns:fields>
-	                <tns:field label="Company" localVariablePath="company"/>
-	                <tns:field label="Usuario" localVariablePath="userCompanyCode"/>	
-					<tns:field label="rowversion" localVariablePath="rowVersion"/>			
-					<tns:field label="correlativo" localVariablePath="id"/>
-				</tns:fields>
-	        </tns:row>
-	        <tns:row>
-				<tns:fields>					
-					<tns:field label="deleted" localVariablePath="deleted"/>	
-					<tns:field label="insdate" localVariablePath="insdate"/>	
-					<tns:field label="update" localVariablePath="upddate"/>
-				</tns:fields>
-	        </tns:row>
-	        <tns:row>
-				<tns:fields>	
-					<tns:field label="usercreator" localVariablePath="userCreator"/>
-					<tns:field label="usrupdate" localVariablePath="userUpdate"/>
-				</tns:fields>
-			</tns:row>			
-	   	</tns:form>
+          <tns:form title="Info sistema" copyFromModel="BaseModel" />            
 	  </tns:tab>	  
 	</tns:tabs>
 
