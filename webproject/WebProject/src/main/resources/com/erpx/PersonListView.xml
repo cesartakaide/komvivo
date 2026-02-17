@@ -41,40 +41,42 @@ directory="persona">
 		    <tns:column title="correlativo" path="id"></tns:column>		    
 		   	<tns:column title="nombre1" path="name1"></tns:column>
 			<tns:column title="apellido1" path="surname1"></tns:column>	
-			
-			
+
 			<tns:column title="consultar">
 			     <tns:eventChain type="onClick">
-			        <tns:event>
-			           <tns:link viewName="PersonDetail">
-			              <tns:param viewParam="state" constantValue="DT"/>
-			              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
-			           </tns:link>
-			        </tns:event>
-			     </tns:eventChain>
+				        <tns:event>
+				           <tns:link viewName="PersonDetail">
+				              <tns:param viewParam="state" constantValue="DT"/>
+				              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
+				           </tns:link>
+				        </tns:event>
+				     </tns:eventChain>
 			</tns:column>
-
-			<tns:column title="editar">
-			     <tns:eventChain type="onClick">
-			        <tns:event>
-			           <tns:link viewName="PersonDetail">
-			              <tns:param viewParam="state" constantValue="UP"/>
-			              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
-			           </tns:link>
-			        </tns:event>
-			     </tns:eventChain>
-			</tns:column>
-			
-			<tns:column title="eliminar">
-			     <tns:eventChain type="onClick">
-			        <tns:event>
-			           <tns:link viewName="PersonDetail">
-			              <tns:param viewParam="state" constantValue="DE"/>
-			              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
-			           </tns:link>
-			        </tns:event>
-			     </tns:eventChain>
-			</tns:column>								 			 			
+							
+			<tns:columnGroup groupName="Edicion">
+	
+				<tns:column title="editar">
+				     <tns:eventChain type="onClick">
+				        <tns:event>
+				           <tns:link viewName="PersonDetail" imageSrc="">
+				              <tns:param viewParam="state" constantValue="UP"/>
+				              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
+				           </tns:link>
+				        </tns:event>
+				     </tns:eventChain>
+				</tns:column>
+				
+				<tns:column title="eliminar">
+				     <tns:eventChain type="onClick">
+				        <tns:event>
+				           <tns:link viewName="PersonDetail" imageSrc="">
+				              <tns:param viewParam="state" constantValue="DE"/>
+				              <tns:param viewParam="id" inRow="true" localVariablePath="id"/>
+				           </tns:link>
+				        </tns:event>
+				     </tns:eventChain>
+				</tns:column>	
+			</tns:columnGroup>							 			 			
 		   </tns:table>
 		</tns:row>
 	</tns:form>
