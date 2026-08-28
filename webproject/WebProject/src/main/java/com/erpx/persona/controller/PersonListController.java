@@ -14,13 +14,13 @@ import com.erpx.general.ERPConstants;
 import com.erpx.persona.bean.PersonTO;
 import com.erpx.persona.command.ListPerson;
 import com.viewengine.annotation.ControllerMetadata;
-import com.viewengine.controller.base.QueryController;
+import com.viewengine.controller.base.CriteriaQueryController;
 import com.viewengine.exception.RestException;
 
 @RestController
 @RequestMapping("/PersonList")
 @ControllerMetadata(domains=ERPConstants.ERP_DOMAIN, directory="person")
-public class PersonListController extends QueryController<PersonTO, PersonTO>{
+public class PersonListController extends CriteriaQueryController<PersonTO, PersonTO>{
 
 	
 	@RequestMapping( method = RequestMethod.GET)
